@@ -36,13 +36,17 @@ function App() {
     setPlaylistName(name)
   }
 
+  const search = (searchTerm) => {
+    console.log(searchTerm)
+  }
+
   return (
     <div>
       <h1>
         Ja<span className="highlight">mmm</span>ing
       </h1>
       <div className="App">
-        <SearchBar />
+        <SearchBar onSearch={search} />
         <div className="App-playlist">
           <SearchResults
             searchResults={searchResults}

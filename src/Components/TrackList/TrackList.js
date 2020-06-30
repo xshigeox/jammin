@@ -15,7 +15,7 @@ const TrackList = (props) => {
     )
   })
 
-  return <div class="TrackList">{tracks}</div>
+  return <div className="TrackList">{tracks}</div>
 }
 
 export default TrackList

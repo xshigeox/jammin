@@ -9,14 +9,14 @@ const Playlist = (props) => {
   }
 
   return (
-    <div class="Playlist">
+    <div className="Playlist">
       <input value={props.playlistName} onChange={handleNameChange} />
       <TrackList
         tracks={props.playlistTracks}
         onRemove={props.onRemove}
         isRemoval={props.isRemoval}
       />
-      <button class="Playlist-save">SAVE TO SPOTIFY</button>
+      <button className="Playlist-save">SAVE TO SPOTIFY</button>
     </div>
   )
 }
