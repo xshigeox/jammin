@@ -11,7 +11,8 @@ function App() {
     { name: "Track 3", artist: "artist 3", album: "album 3", id: 3 },
   ])
 
-  const playlistName = "Playlist"
+  const [playlistName, setPlaylistName] = useState("Playlist 1")
+
   const [playlistTracks, setPlaylistTracks] = useState([
     { name: "Track 1", artist: "artist 1", album: "album 1", id: 1 },
     { name: "Track 2", artist: "artist 2", album: "album 2", id: 2 },
@@ -29,6 +30,10 @@ function App() {
     setPlaylistTracks(
       playlistTracks.filter((savedTrack) => savedTrack.id !== track.id)
     )
+  }
+
+  const updatePlaylistName = (name) => {
+    setPlaylistName(name)
   }
 
   return (
@@ -49,6 +54,7 @@ function App() {
             playlistTracks={playlistTracks}
             onRemove={removeTrack}
             isRemoval={true}
+            onNameChange={updatePlaylistName}
           />
         </div>
       </div>
