@@ -31,6 +31,12 @@ function App() {
     )
   }
 
+  const savePlaylist = () => {
+    const trackURIs = playlistTracks.forEach((track) => {
+      return track.uri
+    })
+  }
+
   return (
     <div>
       <h1>
@@ -49,6 +55,7 @@ function App() {
             playlistTracks={playlistTracks}
             onRemove={removeTrack}
             isRemoval={true}
+            onSave={savePlaylist}
           />
         </div>
       </div>
