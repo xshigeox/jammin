@@ -1,6 +1,5 @@
-const clientId = "2932c4aaa79a413b863849fd4ed9d8e4" // Insert client ID here.
-const redirectUri = "http://localhost:3000" // Have to add this to your accepted Spotify redirect URIs on the Spotify API.
-let accessToken
+const clientId = "" // Insert client ID here.
+const redirectUri = "https://numberless-prose.surge.sh"
 
 const Spotify = {
   getAccessToken() {
