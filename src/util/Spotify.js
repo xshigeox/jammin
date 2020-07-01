@@ -1,5 +1,6 @@
 const clientId = "" // Insert client ID here.
 const redirectUri = "https://numberless-prose.surge.sh"
+let accessToken
 
 const Spotify = {
   getAccessToken() {
