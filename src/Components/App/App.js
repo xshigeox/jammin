@@ -6,18 +6,11 @@ import Playlist from "../Playlist/Playlist"
 import Spotify from "../../util/Spotify"
 
 function App() {
-  const [searchResults, setSearchResults] = useState([
-    { name: "Track 1", artist: "artist 1", album: "album 1", id: 1 },
-    { name: "Track 2", artist: "artist 2", album: "album 2", id: 2 },
-    { name: "Track 3", artist: "artist 3", album: "album 3", id: 3 },
-  ])
+  const [searchResults, setSearchResults] = useState([])
 
   const [playlistName, setPlaylistName] = useState("Playlist 1")
 
-  const [playlistTracks, setPlaylistTracks] = useState([
-    { name: "Track 1", artist: "artist 1", album: "album 1", id: 1 },
-    { name: "Track 2", artist: "artist 2", album: "album 2", id: 2 },
-  ])
+  const [playlistTracks, setPlaylistTracks] = useState([])
 
   const addTrack = (track) => {
     if (playlistTracks.find((savedTrack) => savedTrack.id === track.id)) {
@@ -35,6 +28,14 @@ function App() {
 
   const updatePlaylistName = (name) => {
     setPlaylistName(name)
+  }
+
+  const savePlaylist = () => {
+    const trackUris = playlistTracks.map((track) => track.uri)
+    Spotify.savePlaylist(playlistName, trackUris).then(() => {
+      setPlaylistName("New Playlist")
+      setPlaylistTracks([])
+    })
   }
 
   const search = (searchTerm) => {
@@ -62,6 +63,7 @@ function App() {
             onRemove={removeTrack}
             isRemoval={true}
             onNameChange={updatePlaylistName}
+            onSave={savePlaylist}
           />
         </div>
       </div>
